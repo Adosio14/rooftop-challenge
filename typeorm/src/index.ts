@@ -2,6 +2,10 @@ import "reflect-metadata";
 import { createConnection } from "typeorm";
 import { Coupon } from "./entity/coupon";
 import { Store } from "./entity/store";
+import express from "express";
+import 'dotenv/config';
+const app = express();
+
 
 
 createConnection({
@@ -16,7 +20,12 @@ createConnection({
         Store
     ],
     synchronize: true,
-    logging: false
 }).then(connection => {
-    console.log(connection)
+    const repository = connection.getRepository(Store.name);
+    console.log(repository.find({where: {name: "*"}}))
+    app.get('/stores', function(req,res){
+        res.send('a')
+    })
+
+    app.listen(3000)
 }).catch(error => console.log(error));
