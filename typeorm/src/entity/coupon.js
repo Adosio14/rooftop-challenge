@@ -16,25 +16,23 @@ var Coupon = /** @class */ (function () {
     function Coupon() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn(),
-        __metadata("design:type", Number)
-    ], Coupon.prototype, "id");
-    __decorate([
-        typeorm_1.Column({ name: "assigned_at" }),
+        typeorm_1.Column({ name: "assigned_at", nullable: true }),
         __metadata("design:type", Date)
     ], Coupon.prototype, "assignedAt");
     __decorate([
-        typeorm_1.Column({
-            width: 8
-        }),
+        typeorm_1.Column({ width: 8, nullable: true }),
         __metadata("design:type", Number)
     ], Coupon.prototype, "code");
     __decorate([
-        typeorm_1.Column(),
+        typeorm_1.Column({ nullable: true }),
         __metadata("design:type", String)
     ], Coupon.prototype, "customer_email");
     __decorate([
-        typeorm_1.Column({ name: "expires_at" }),
+        typeorm_1.PrimaryGeneratedColumn("uuid"),
+        __metadata("design:type", Number)
+    ], Coupon.prototype, "id");
+    __decorate([
+        typeorm_1.Column({ name: "expires_at", nullable: true }),
         __metadata("design:type", Date)
     ], Coupon.prototype, "expiresAt");
     Coupon = __decorate([
