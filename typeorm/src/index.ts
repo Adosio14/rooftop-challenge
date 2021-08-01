@@ -1,37 +1,20 @@
-import "reflect-metadata";
-import { createConnection } from "typeorm";
-import { Coupon } from "./entity/coupon";
-import { Store } from "./entity/store";
 import express from "express";
-import 'dotenv/config';
+import { createConnection } from "typeorm";
+import storeRoute from "./routes/storeRoutes"
 const app = express();
 
+createConnection(
+    ).then(connection => {
+        console.log(connection)
+    }).catch(error => console.log(error));
 
+    
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-
-
 //routes
-app.use(require('./routes/index'));
+app.use(storeRoute);
 
-createConnection({
-    type: "postgres",
-    host: "localhost",
-    port: 5432,
-    username: "postgres",
-    password: "TamarindoAcido",
-    database: "DataBase",
-    entities: [
-        Coupon,
-        Store
-    ],
-    synchronize: true,
-}).then(connection => {
-    app.get('/stores', function(req,res){
-        res.send('a')
-    })
 
-    app.listen(3000)
-}).catch(error => console.log(error));
+app.listen(4000);

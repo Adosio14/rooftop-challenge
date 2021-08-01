@@ -1,7 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 import "reflect-metadata"
 
-@Entity({ name: "stores" })
+@Entity({ name: "stores",schema: "rooftop-backend-challenge" })
 export class Store {
 
     @PrimaryGeneratedColumn()

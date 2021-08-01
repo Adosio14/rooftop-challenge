@@ -5,4 +5,4 @@ const {getStores} = require("../controllers/index.controller")
 router.get("/stores", getStores)
 
 
-module.exports = router;
+export default router;
