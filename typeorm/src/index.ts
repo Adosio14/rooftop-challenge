@@ -7,6 +7,14 @@ import 'dotenv/config';
 const app = express();
 
 
+//middlewares
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
+
+
+//routes
+app.use(require('./routes/index'));
 
 createConnection({
     type: "postgres",
@@ -21,8 +29,6 @@ createConnection({
     ],
     synchronize: true,
 }).then(connection => {
-    const repository = connection.getRepository(Store.name);
-    console.log(repository.find({where: {name: "*"}}))
     app.get('/stores', function(req,res){
         res.send('a')
     })
