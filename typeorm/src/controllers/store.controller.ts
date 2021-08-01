@@ -1,29 +1,24 @@
-const {Pool} = require("pg");
+import { Express } from "express";
 import "dotenv/config";
-import { Coupon } from "../entity/coupon";
+import { response } from "express";
+import { getRepository } from "typeorm";
 import { Store } from "../entity/store";
 
 
-
-new Pool({
-    type: "postgres",
-    host: "localhost",
-    port: 5432,
-    username: "postgres",
-    password: "TamarindoAcido",
-    database: "DataBase",
-    entities: [
-        Coupon,
-        Store
-    ],
-    synchronize: true,
-})
-
-
-
-const getStores = (req,res) =>{
-    res.send("stores")
+const getStores = async (req, res)=>{
+    await getRepository(Store)
+    .find()
+    .then((data)=>{
+        res.status(200).json({
+            data: data,
+        });
+    }).catch((err)=>{
+        response.status(400).json({
+            message: err,
+        });
+    })
 }
+
 module.exports = {
     getStores
 }
