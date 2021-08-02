@@ -2,14 +2,14 @@ import { Express } from "express";
 import "dotenv/config";
 import { response } from "express";
 import { getRepository } from "typeorm";
-import { Store } from "../entity/store";
+import Store from "../entity/store"
 
 
 const getStores = async (req, res)=>{
     await getRepository(Store)
     .find()
     .then((data)=>{
-        res.status(200).json({
+        response.status(200).json({
             data: data,
         });
     }).catch((err)=>{
@@ -19,6 +19,4 @@ const getStores = async (req, res)=>{
     })
 }
 
-module.exports = {
-    getStores
-}
+export default getStores
