@@ -9,22 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.__esModule = true;
-exports.Store = void 0;
 var typeorm_1 = require("typeorm");
 require("reflect-metadata");
 var Store = /** @class */ (function () {
     function Store() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn(),
+        typeorm_1.PrimaryGeneratedColumn({ name: "id" }),
         __metadata("design:type", Number)
     ], Store.prototype, "id");
     __decorate([
-        typeorm_1.Column(),
+        typeorm_1.Column({ name: "name", nullable: true }),
         __metadata("design:type", String)
     ], Store.prototype, "name");
     __decorate([
-        typeorm_1.Column(),
+        typeorm_1.Column({ name: "address", nullable: true }),
         __metadata("design:type", String)
     ], Store.prototype, "address");
     Store = __decorate([
@@ -32,4 +31,4 @@ var Store = /** @class */ (function () {
     ], Store);
     return Store;
 }());
-exports.Store = Store;
+exports["default"] = Store;

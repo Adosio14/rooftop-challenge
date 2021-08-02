@@ -1,16 +1,16 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 import "reflect-metadata"
 
-@Entity({ name: "stores",schema: "rooftop-backend-challenge" })
-export class Store {
+@Entity({ name: "stores", schema: "rooftop-backend-challenge"})
+export default class Store {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn({ name: "id"})
     id!: number;
 
-    @Column()
+    @Column({name: "name", nullable: true})
     name!: string;
 
-    @Column()
+    @Column({name: "address", nullable: true})
     address!: string;
 
 }
