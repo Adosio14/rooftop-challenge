@@ -39,28 +39,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
+exports.getStores = void 0;
 require("dotenv/config");
-var express_1 = require("express");
 var typeorm_1 = require("typeorm");
 var store_1 = __importDefault(require("../entity/store"));
 var getStores = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, typeorm_1.getRepository(store_1["default"])
-                    .find()
-                    .then(function (data) {
-                    express_1.response.status(200).json({
-                        data: data
-                    });
-                })["catch"](function (err) {
-                    express_1.response.status(400).json({
-                        message: err
-                    });
-                })];
-            case 1:
-                _a.sent();
-                return [2 /*return*/];
-        }
+        typeorm_1.getRepository(store_1["default"])
+            .find()
+            .then(function (data) {
+            res.status(200).json({
+                data: data
+            });
+        })["catch"](function (err) {
+            res.status(400).json({
+                message: err
+            });
+        });
+        return [2 /*return*/];
     });
 }); };
-exports["default"] = getStores;
+exports.getStores = getStores;
