@@ -7,8 +7,8 @@ export default class Coupon {
     @Column({ name: "assigned_at", nullable: true })
     assignedAt!: Date;
 
-    @Column({width : 8, nullable: true})
-    code!: number;
+    @Column({length : 8, nullable: true})
+    code!: string;
 
     @Column({nullable: true})
     customer_email!: string;

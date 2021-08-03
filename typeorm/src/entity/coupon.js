@@ -19,8 +19,8 @@ var Coupon = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Coupon.prototype, "assignedAt");
     __decorate([
-        typeorm_1.Column({ width: 8, nullable: true }),
-        __metadata("design:type", Number)
+        typeorm_1.Column({ length: 8, nullable: true }),
+        __metadata("design:type", String)
     ], Coupon.prototype, "code");
     __decorate([
         typeorm_1.Column({ nullable: true }),
