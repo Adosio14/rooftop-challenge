@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.__esModule = true;
-exports.Coupon = void 0;
 var typeorm_1 = require("typeorm");
 require("reflect-metadata");
 var Coupon = /** @class */ (function () {
@@ -40,4 +39,4 @@ var Coupon = /** @class */ (function () {
     ], Coupon);
     return Coupon;
 }());
-exports.Coupon = Coupon;
+exports["default"] = Coupon;
