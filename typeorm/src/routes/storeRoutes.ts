@@ -1,8 +1,8 @@
 import {Router} from "express"
 const router = Router()
-const {getStores} = require("../controllers/index.controller")
+import getStores from "../controllers/store.controller"
 
 router.get("/stores", getStores)
 
 
-export default router;
+export default router
