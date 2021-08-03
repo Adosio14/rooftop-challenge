@@ -36,7 +36,7 @@ var Coupon = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Coupon.prototype, "expiresAt");
     Coupon = __decorate([
-        typeorm_1.Entity({ name: "coupons", schema: "rooftop-backend-challenge" })
+        typeorm_1.Entity({ name: "coupons" })
     ], Coupon);
     return Coupon;
 }());

@@ -27,7 +27,7 @@ var Store = /** @class */ (function () {
         __metadata("design:type", String)
     ], Store.prototype, "address");
     Store = __decorate([
-        typeorm_1.Entity({ name: "stores", schema: "rooftop-backend-challenge" })
+        typeorm_1.Entity({ name: "stores" })
     ], Store);
     return Store;
 }());

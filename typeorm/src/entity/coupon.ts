@@ -1,7 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 import "reflect-metadata"
 
-@Entity({ name: "coupons", schema: "rooftop-backend-challenge"})
+@Entity({ name: "coupons"})
 export class Coupon {
 
     @Column({ name: "assigned_at", nullable: true })
