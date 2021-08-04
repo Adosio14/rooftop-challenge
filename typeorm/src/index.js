@@ -3,30 +3,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-require("reflect-metadata");
-var typeorm_1 = require("typeorm");
-var coupon_1 = require("./entity/coupon");
-var store_1 = require("./entity/store");
 var express_1 = __importDefault(require("express"));
-require("dotenv/config");
+var typeorm_1 = require("typeorm");
+var storeRoutes_1 = __importDefault(require("./routes/storeRoutes"));
+var couponRoutes_1 = __importDefault(require("./routes/couponRoutes"));
 var app = express_1["default"]();
-typeorm_1.createConnection({
-    type: "postgres",
-    host: "localhost",
-    port: 5432,
-    username: "postgres",
-    password: "TamarindoAcido",
-    database: "DataBase",
-    entities: [
-        coupon_1.Coupon,
-        store_1.Store
-    ],
-    synchronize: true
-}).then(function (connection) {
-    var repository = connection.getRepository(store_1.Store.name);
-    console.log(repository.find({ where: { name: "*" } }));
-    app.get('/stores', function (req, res) {
-        res.send('a');
-    });
-    app.listen(3000);
+require("dotenv/config");
+typeorm_1.createConnection().then(function (connection) {
+    console.log(connection);
 })["catch"](function (error) { return console.log(error); });
+//middlewares
+app.use(express_1["default"].json());
+app.use(express_1["default"].urlencoded({ extended: false }));
+//routes
+app.use(storeRoutes_1["default"], couponRoutes_1["default"]);
+app.listen(4000);
+console.log("escuchando de pana en el puerto 4k rey");
