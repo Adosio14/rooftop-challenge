@@ -1,11 +1,10 @@
 import express from "express";
-import { Connection, createConnection } from "typeorm";
+import {createConnection } from "typeorm";
 import storeRoute from "./routes/storeRoutes"
 import couponRoute from "./routes/couponRoutes"
 const app = express();
 import "dotenv/config";
 createConnection().then(connection => {
-    console.log(connection)
 }).catch(error => console.log(error));
 //middlewares
 app.use(express.json());
@@ -16,4 +15,3 @@ app.use(storeRoute,couponRoute);
 
 
 app.listen(4000);
-console.log("escuchando de pana en el puerto 4k rey")
