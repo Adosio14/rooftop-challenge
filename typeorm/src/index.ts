@@ -14,4 +14,4 @@ app.use(express.urlencoded({extended: false}));
 app.use(storeRoute,couponRoute);
 
 
-app.listen(4000);
+app.listen(process.env.PORT);
