@@ -1,11 +1,13 @@
 import { Response, Request } from "express";
 import "dotenv/config";
-import { FindOperator, getRepository, Like } from "typeorm";
+import { getRepository, Like } from "typeorm";
 import Store from "../entity/store"
-import { any } from "joi";
+import {addressSchema, nameSchema} from "../validators/store"
 
 
 interface storeQueryParams{
+    id : number,
+    address: string,
     name?: string,
     page?: string;
 }
@@ -37,6 +39,40 @@ export const getStores = async (req: Request<{},{},{},storeQueryParams>, res:Res
         res.status(200).send(data)
     }catch{
         res.status(404).send({message: "There is no stores!"})
+    }
+}
+export const postStores = async (req: Request<{},{},{},storeQueryParams>, res:Response)=>{
+    const repository = getRepository(Store)
+    const address: string = (<string>req.query.address)
+    const name : string =(<string>req.query.name)
+    const randomDate = function(start, end){
+        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+    }
+    const date = randomDate(new Date(2023, 0, 1), new Date())
+    try{
+        const validateCode = await nameSchema.validateAsync({name}) + await addressSchema.validateAsync({address})
+        console.log(name, address)
+        if(validateCode){
+            const store =new Store()
+                store.name = name
+                store.address = address
+            repository.save(store)
+            res.status(201).send({message: "Succesfully created store!" })
+            
+        }
+    }catch(err){
+            res.status(422).send({message: err})
+        }
+}
+export const deleteStores = async (req: Request<{},{},{},storeQueryParams>, res:Response)=>{
+    const repository = await getRepository(Store)
+    const id: number =(<number>req.query.id)
+    try{
+        const findId = await repository.findOneOrFail(id)
+            repository.softDelete(id)
+            res.status(201).send({message: "Store succesfully deleted!"})
+    }catch(err){
+        res.status(404).send({message: "Store does not exist!"})
     }
 }
 
