@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, DeleteDateColumn} from "typeorm";
 import "reflect-metadata"
 
 @Entity({ name: "coupons"})
@@ -18,5 +18,8 @@ export default class Coupon {
 
     @Column({ name: "expires_at", nullable: true })
     expiresAt!: Date;
+    
+    @DeleteDateColumn({name: "deleted_at", nullable : true})
+    deletedAt!: Date;
 
 }
