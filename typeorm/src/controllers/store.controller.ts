@@ -45,10 +45,6 @@ export const postStores = async (req: Request<{},{},{},storeQueryParams>, res:Re
     const repository = getRepository(Store)
     const address: string = (<string>req.query.address)
     const name : string =(<string>req.query.name)
-    const randomDate = function(start, end){
-        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-    }
-    const date = randomDate(new Date(2023, 0, 1), new Date())
     try{
         const validateCode = await nameSchema.validateAsync({name}) + await addressSchema.validateAsync({address})
         if(validateCode){
