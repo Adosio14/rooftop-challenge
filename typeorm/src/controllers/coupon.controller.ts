@@ -5,6 +5,7 @@ import Coupon from "../entity/coupon"
 import {codeSchema, emailSchema} from "../validators/coupon"
 
 interface couponQueryParams{
+    id: number;
     code?: string,
     customer_email?: string
 }
@@ -73,4 +74,19 @@ export const patchCoupon = async (req: Request<{},{},{},couponQueryParams>, res:
             res.status(422).send(err)
         }
 }  
-
+export const deleteCoupon = async (req: Request<{},{},{},couponQueryParams>, res:Response)=>{
+    const repository = await getRepository(Coupon)
+    const id: number =(<number>req.query.id)
+    try{
+        const findId = await repository.findOneOrFail(id)
+            if(findId.customer_email === null){
+                repository.softDelete(id)
+                res.status(201).send({message: "Coupon succesfully deleted!"})
+            }else{
+                res.status(404).send({message: "The coupon was not deleted, there is a email assigned to the coupon!"})
+            }
+        
+    }catch(err){
+        res.status(404).send({message: "Coupon does not exist!"})
+    }
+}
