@@ -51,7 +51,6 @@ export const postStores = async (req: Request<{},{},{},storeQueryParams>, res:Re
     const date = randomDate(new Date(2023, 0, 1), new Date())
     try{
         const validateCode = await nameSchema.validateAsync({name}) + await addressSchema.validateAsync({address})
-        console.log(name, address)
         if(validateCode){
             const store =new Store()
                 store.name = name
