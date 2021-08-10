@@ -14,7 +14,6 @@ export const getCoupon = async (req: Request<{},{},{},couponQueryParams>, res:Re
     const repository = getRepository(Coupon)
     try{
         const data = await repository.findOneOrFail({customer_email: req.query.customer_email, code: req.query.code})
-        console.log(req.query)
          if(data){
             res.sendStatus(200)
         }
@@ -40,14 +39,12 @@ export const postCoupon = async (req: Request<{},{},{},couponQueryParams>, res:R
             
         }
     }catch(err){
-            res.status(404).send({message: err})
+            res.status(422).send({message: err})
         }
 }
 export const patchCoupon = async (req: Request<{},{},{},couponQueryParams>, res:Response)=>{
     const repository = getRepository(Coupon)
         const email: string = (<string>req.query.customer_email)
-        console.log(req.query)
-        console.log({email})
         const timeAndDate = new Date()
             const date = timeAndDate.getFullYear()+"-"+(timeAndDate.getMonth()+1)+"-"+timeAndDate.getDate()
             const time = timeAndDate.getHours()+":"+timeAndDate.getMinutes()+":"+timeAndDate.getSeconds()
