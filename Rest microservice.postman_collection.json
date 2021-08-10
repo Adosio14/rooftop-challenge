@@ -1,0 +1,495 @@
+{
+	"info": {
+		"_postman_id": "e8548cf3-2c67-4d6e-ba66-441013e95a41",
+		"name": "Rest microservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Stores",
+			"item": [
+				{
+					"name": "Getting the stores list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Getting the stores list including the page number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores?page=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Posting a new store with name and  no address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores?name=UmbrellaCorp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "UmbrellaCorp"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Posting a new store with address and no name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores?address=EvergeenTerrace",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "address",
+									"value": "EvergeenTerrace"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Posting a new store with name and address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores?name=UmbrellaCorp&address=12313Evergreen",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "UmbrellaCorp"
+								},
+								{
+									"key": "address",
+									"value": "12313Evergreen"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting a store that exists",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting a store that doesn't exists Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores?id=9999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "9999"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coupons",
+			"item": [
+				{
+					"name": "Getting a coupon with the necessary params",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/coupons?customer_email=abmem@vuec.ps&code=H37VUSZS",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "customer_email",
+									"value": "abmem@vuec.ps"
+								},
+								{
+									"key": "code",
+									"value": "H37VUSZS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Getting a coupon without the necessary params",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/coupons?code=H37VUSZS",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "H37VUSZS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Getting a coupon without the necessary params Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/coupons?customer_email=abmem@vuec.ps",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "customer_email",
+									"value": "abmem@vuec.ps"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Posting a new coupon with a valid code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/coupons?code=AWER2358",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "AWER2358"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Posting a new coupon with a invalid code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/coupons?code=AWER2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "AWER2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Coupon email assignation with a valid and no assignated email",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/coupons?customer_email=asdasda@gmailtarararara.ar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "customer_email",
+									"value": "asdasda@gmailtarararara.ar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Coupon email assignation with a valid but already assigned email",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/coupons?customer_email=asdasda@gmail.ar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "customer_email",
+									"value": "asdasda@gmail.ar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Coupon email assignation with a invalid email",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/coupons?customer_email=asdasda@",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "customer_email",
+									"value": "asdasda@"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting a coupon with a valid ID, but assigned to an email",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/coupons?id=12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting a coupon with a valid ID, and without email assigned",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/coupons?id=32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "32"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting a coupon with a invalid ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/coupons?id=9999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "9999"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stats",
+			"item": [
+				{
+					"name": "Getting Stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
