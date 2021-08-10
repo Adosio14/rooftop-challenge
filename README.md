@@ -1,4 +1,5 @@
-"# API Rest microservice
+# API Rest microservice
+
 This microservice is a final activity of a **Rooftop Academy** web development course. It was designed and developed using the skills learned in the lessons. The functions of this microservice are retrieve, delete, update coupon or store information from an external database. 
 
 ## Technologies used 🛠️
