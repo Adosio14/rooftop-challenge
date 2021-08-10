@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e8548cf3-2c67-4d6e-ba66-441013e95a41",
+		"_postman_id": "17cca76f-a717-46d1-80b2-7dce02176744",
 		"name": "Rest microservice",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -46,6 +46,60 @@
 								{
 									"key": "page",
 									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Getting the stores sorting by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores?name=Services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Services"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Getting the stores list sorting by name in a specific page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores?name=Services&page=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Services"
+								},
+								{
+									"key": "page",
+									"value": "2"
 								}
 							]
 						}
